@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>IconExport</class>
+ <widget class="QDialog" name="IconExport">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>600</width>
+    <height>60</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>600</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>IconExport</string>
+  </property>
+  <widget class="QWidget" name="centralWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>200</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget
+{
+	font: 16px &quot;Microsoft JhengHei&quot;;
+    color: #212121;
+}
+
+QWidget:!enabled
+{
+    color: #78000000;
+}
+
+QWidget#centralWidget
+{
+    background: #f9f9f9;
+}</string>
+   </property>
+   <widget class="QLabel" name="labelFontName">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>70</y>
+      <width>140</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBoxTargetSize">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>70</y>
+      <width>70</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Image size&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSpinBox
+{
+    padding: 0 0 0 6px;
+
+    border: 5px;
+	border-image: url(:/Picture/ComboBox_Background.png) 5 stretch stretch;
+}
+
+QSpinBox::up-button
+{
+    width: 12px;
+    padding: 0 6 -4 0px;
+    image: url(:/Picture/ComboBox_Arrow_Up.png);
+}
+
+QSpinBox::up-button::hover
+{
+    padding: 0 4 -4 0px;
+    border-right: 2px solid #2895f1;
+}
+
+QSpinBox::down-button
+{
+    width: 12px;
+    padding: -4 6 0 0px;
+    image: url(:/Picture/ComboBox_Arrow_Down.png);
+}
+
+QSpinBox::down-button::hover
+{
+    padding: -4 4 0 0px;
+    border-right: 2px solid #2895f1;
+}</string>
+    </property>
+    <property name="minimum">
+     <number>4</number>
+    </property>
+    <property name="maximum">
+     <number>10240</number>
+    </property>
+    <property name="value">
+     <number>200</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>70</y>
+      <width>30</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>px</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditColor">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>130</y>
+      <width>100</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;#RGB (each of R, G, and B is a single hex digit)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;#RRGGBB;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;#AARRGGBB (Since 5.2);&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;#RRRGGGBBB;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;#RRRRGGGGBBBB;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;A name from the list of colors defined in the list of SVG color keyword names provided by the World Wide Web Consortium;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit
+{
+    border: 0px;
+    background:transparent;
+
+    padding: 0 0 -5 3px;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+QLineEdit::hover
+{
+    padding: 0 0 -6 3px;
+    border-bottom: 2px solid #2895f1;
+}
+
+QLineEdit::!enabled
+{
+    padding: 0 0 -6 3px;
+    border-bottom: 2px dotted #cfcfcf;
+}</string>
+    </property>
+    <property name="text">
+     <string>#000000</string>
+    </property>
+    <property name="maxLength">
+     <number>13</number>
+    </property>
+    <property name="cursorPosition">
+     <number>7</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>130</y>
+      <width>80</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Color:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonCancel">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>10</y>
+      <width>120</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+    color: black;
+
+    border: 5px;
+	border-image: url(:/Picture/Button_Raised_White_Normal.png) 5 stretch stretch;
+}
+
+QPushButton::hover
+{
+    border-image: url(:/Picture/Button_Raised_White_Hover.png) 5 stretch stretch;
+}
+
+QPushButton::pressed
+{
+    border-image: url(:/Picture/Button_Raised_White_Pressed.png) 5 stretch stretch;
+}
+
+QPushButton::!enabled
+{
+    color: #66000000;
+
+	border-image: url(:/Picture/Button_Raised_White_Disabled.png) 5 stretch stretch;
+}</string>
+    </property>
+    <property name="text">
+     <string>Cancel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>235</x>
+      <y>70</y>
+      <width>60</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Size:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonExport">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>10</y>
+      <width>120</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+    color: white;
+
+    border: 5px;
+	border-image: url(:/Picture/Button_Raised_Blue_Normal.png) 5 stretch stretch;
+}
+
+QPushButton::hover
+{
+    border-image: url(:/Picture/Button_Raised_Blue_Hover.png) 5 stretch stretch;
+}
+
+QPushButton::pressed
+{
+    border-image: url(:/Picture/Button_Raised_Blue_Pressed.png) 5 stretch stretch;
+}
+
+QPushButton::!enabled
+{
+    color: #4effffff;
+
+	border-image: url(:/Picture/Button_Raised_Blue_Disabled.png) 5 stretch stretch;
+}</string>
+    </property>
+    <property name="text">
+     <string>Save</string>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="doubleSpinBoxZoom">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>130</y>
+      <width>70</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QDoubleSpinBox
+{
+    padding: 0 0 0 6px;
+
+    border: 5px;
+	border-image: url(:/Picture/ComboBox_Background.png) 5 stretch stretch;
+}
+
+QDoubleSpinBox::up-button
+{
+    width: 12px;
+    padding: 0 6 -4 0px;
+    image: url(:/Picture/ComboBox_Arrow_Up.png);
+}
+
+QDoubleSpinBox::up-button::hover
+{
+    padding: 0 4 -4 0px;
+    border-right: 2px solid #2895f1;
+}
+
+QDoubleSpinBox::down-button
+{
+    width: 12px;
+    padding: -4 6 0 0px;
+    image: url(:/Picture/ComboBox_Arrow_Down.png);
+}
+
+QDoubleSpinBox::down-button::hover
+{
+    padding: -4 4 0 0px;
+    border-right: 2px solid #2895f1;
+}</string>
+    </property>
+    <property name="minimum">
+     <double>0.100000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>10.000000000000000</double>
+    </property>
+    <property name="singleStep">
+     <double>0.050000000000000</double>
+    </property>
+    <property name="value">
+     <double>1.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>130</y>
+      <width>30</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>%</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBoxOffsetX">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>70</y>
+      <width>70</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Image size&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSpinBox
+{
+    padding: 0 0 0 6px;
+
+    border: 5px;
+	border-image: url(:/Picture/ComboBox_Background.png) 5 stretch stretch;
+}
+
+QSpinBox::up-button
+{
+    width: 12px;
+    padding: 0 6 -4 0px;
+    image: url(:/Picture/ComboBox_Arrow_Up.png);
+}
+
+QSpinBox::up-button::hover
+{
+    padding: 0 4 -4 0px;
+    border-right: 2px solid #2895f1;
+}
+
+QSpinBox::down-button
+{
+    width: 12px;
+    padding: -4 6 0 0px;
+    image: url(:/Picture/ComboBox_Arrow_Down.png);
+}
+
+QSpinBox::down-button::hover
+{
+    padding: -4 4 0 0px;
+    border-right: 2px solid #2895f1;
+}</string>
+    </property>
+    <property name="minimum">
+     <number>-10240</number>
+    </property>
+    <property name="maximum">
+     <number>10240</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBoxOffsetY">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>130</y>
+      <width>70</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Image size&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSpinBox
+{
+    padding: 0 0 0 6px;
+
+    border: 5px;
+	border-image: url(:/Picture/ComboBox_Background.png) 5 stretch stretch;
+}
+
+QSpinBox::up-button
+{
+    width: 12px;
+    padding: 0 6 -4 0px;
+    image: url(:/Picture/ComboBox_Arrow_Up.png);
+}
+
+QSpinBox::up-button::hover
+{
+    padding: 0 4 -4 0px;
+    border-right: 2px solid #2895f1;
+}
+
+QSpinBox::down-button
+{
+    width: 12px;
+    padding: -4 6 0 0px;
+    image: url(:/Picture/ComboBox_Arrow_Down.png);
+}
+
+QSpinBox::down-button::hover
+{
+    padding: -4 4 0 0px;
+    border-right: 2px solid #2895f1;
+}</string>
+    </property>
+    <property name="minimum">
+     <number>-10240</number>
+    </property>
+    <property name="maximum">
+     <number>10240</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>235</x>
+      <y>130</y>
+      <width>60</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Zoom:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>405</x>
+      <y>70</y>
+      <width>80</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>X Offset:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>415</x>
+      <y>130</y>
+      <width>70</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Y Offset:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>70</y>
+      <width>100</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Font name:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>70</y>
+      <width>30</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>px</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>130</y>
+      <width>30</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>px</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="widgetPaintCenter" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>200</y>
+     <width>600</width>
+     <height>400</height>
+    </rect>
+   </property>
+   <widget class="QLabel" name="labelPreview">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>100</y>
+      <width>200</width>
+      <height>200</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

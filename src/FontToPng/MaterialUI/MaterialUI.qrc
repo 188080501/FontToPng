@@ -1,0 +1,40 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Picture/Button_Floating_White_Disabled.png</file>
+        <file>Picture/Button_Floating_White_Hover.png</file>
+        <file>Picture/Button_Floating_White_Normal.png</file>
+        <file>Picture/Button_Floating_White_Pressed.png</file>
+        <file>Picture/Button_Floating_Pink_Disabled.png</file>
+        <file>Picture/Button_Floating_Pink_Hover.png</file>
+        <file>Picture/Button_Floating_Pink_Normal.png</file>
+        <file>Picture/Button_Floating_Pink_Pressed.png</file>
+        <file>Picture/Button_Floating_Blue_Disabled.png</file>
+        <file>Picture/Button_Floating_Blue_Hover.png</file>
+        <file>Picture/Button_Floating_Blue_Normal.png</file>
+        <file>Picture/Button_Floating_Blue_Pressed.png</file>
+        <file>Picture/Button_Floating_Violet_Disabled.png</file>
+        <file>Picture/Button_Floating_Violet_Hover.png</file>
+        <file>Picture/Button_Floating_Violet_Normal.png</file>
+        <file>Picture/Button_Floating_Violet_Pressed.png</file>
+        <file>Picture/Button_Raised_Blue_Disabled.png</file>
+        <file>Picture/Button_Raised_Blue_Hover.png</file>
+        <file>Picture/Button_Raised_Blue_Normal.png</file>
+        <file>Picture/Button_Raised_Blue_Pressed.png</file>
+        <file>Picture/Button_Raised_Grey_Disabled.png</file>
+        <file>Picture/Button_Raised_Grey_Hover.png</file>
+        <file>Picture/Button_Raised_Grey_Normal.png</file>
+        <file>Picture/Button_Raised_Grey_Pressed.png</file>
+        <file>Picture/Button_Raised_White_Disabled.png</file>
+        <file>Picture/Button_Raised_White_Hover.png</file>
+        <file>Picture/Button_Raised_White_Normal.png</file>
+        <file>Picture/Button_Raised_White_Pressed.png</file>
+        <file>Picture/ComboBox_Arrow_Down.png</file>
+        <file>Picture/ComboBox_Arrow_Up.png</file>
+        <file>Picture/ComboBox_Background.png</file>
+        <file>Picture/Widget_Background.png</file>
+        <file>Picture/CheckBox_Checked.png</file>
+        <file>Picture/CheckBox_Unchecked.png</file>
+        <file>Picture/RedioButton_Checked.png</file>
+        <file>Picture/RedioButton_Unchecked.png</file>
+    </qresource>
+</RCC>
