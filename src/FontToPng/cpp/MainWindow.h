@@ -7,6 +7,7 @@
 #include <QSvgRenderer>
 #include <QFileDialog>
 #include <QStandardPaths>
+#include <QColorDialog>
 
 // JasonQt lib import
 #include "JasonQt_Foundation.h"

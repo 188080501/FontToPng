@@ -122,7 +122,7 @@ void MainWindow::iconExport(const int &fontMakerIndex, const int &fontNodesIndex
 
     iconExport->labelFontName->setText(QString("%1\n%2").arg(m_fontDatas[fontMakerIndex].name, node.flag));
 
-    auto makeImage = [&]()->QImage
+    auto makeImage = [&](const bool &withFrame)->QImage
     {
         if(iconExport->doubleSpinBoxZoom->value() == 1)
         {
@@ -130,7 +130,11 @@ void MainWindow::iconExport(const int &fontMakerIndex, const int &fontNodesIndex
                                                  iconExport->labelPreview->size(),
                                                  QColor(iconExport->lineEditColor->text()),
                                                  QPointF(iconExport->spinBoxOffsetX->value(), iconExport->spinBoxOffsetY->value()));
-            MainWindow::drawFrame(image);
+            if(withFrame)
+            {
+                MainWindow::drawFrame(image);
+            }
+
             return image;
         }
         else
@@ -148,7 +152,11 @@ void MainWindow::iconExport(const int &fontMakerIndex, const int &fontNodesIndex
             painter.drawImage((image.width() - image2.width()) / 2.0, (image.height() - image2.height()) / 2, image2);
             painter.end();
 
-            MainWindow::drawFrame(image);
+            if(withFrame)
+            {
+                MainWindow::drawFrame(image);
+            }
+
             return image;
         }
     };
@@ -160,7 +168,7 @@ void MainWindow::iconExport(const int &fontMakerIndex, const int &fontNodesIndex
                                               iconExport->spinBoxTargetSize->value(),
                                               iconExport->spinBoxTargetSize->value());
 
-        iconExport->labelPreview->setPixmap(QPixmap::fromImage(makeImage()));
+        iconExport->labelPreview->setPixmap(QPixmap::fromImage(makeImage(true)));
     };
 
     refreshPreview();
@@ -172,12 +180,29 @@ void MainWindow::iconExport(const int &fontMakerIndex, const int &fontNodesIndex
     connect(iconExport->doubleSpinBoxZoom,  (void(QDoubleSpinBox::*)(double))&QDoubleSpinBox::valueChanged, [&](){ refreshPreview(); });
     connect(iconExport->pushButtonCancel,   &QPushButton::clicked, iconExportDialog, &QDialog::reject);
 
+    connect(iconExport->pushButtonShowColorDialog, &QPushButton::clicked, [&]()
+    {
+        QColorDialog dialog(QColor(iconExport->lineEditColor->text()));
+
+        QObject::connect(&dialog, &QColorDialog::accepted, [&]()
+        {
+            iconExport->lineEditColor->setText(dialog.selectedColor().name());
+        });
+
+        dialog.exec();
+    });
+
     connect(iconExport->pushButtonExport, &QPushButton::clicked, [&]()
     {
         auto filePath = QFileDialog::getSaveFileName(NULL, "Please choose save path", QStandardPaths::writableLocation(QStandardPaths::DesktopLocation), "*.png");
         if(filePath.isEmpty()) { return; }
 
-        if(!makeImage().save(filePath))
+        if(filePath.mid(filePath.size() - 4).toLower() != ".png")
+        {
+            filePath.append(".png");
+        }
+
+        if(!makeImage(false).save(filePath))
         {
             QMessageBox::information(NULL, "Error", "Save png file fail");
         }
